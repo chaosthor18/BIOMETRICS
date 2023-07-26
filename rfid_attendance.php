@@ -41,14 +41,6 @@
               <?php }}?>
               <div class="fs-1 fw-bold mt-4 row">
                 <span class="col-auto">Today Attendance</span>
-                <div class="col-auto">
-                  <a href='rfid_add.php' class='btn btn-success btn-md rounded-3'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-plus-circle align-self-center" viewBox="0 0 16 16">
-                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                    </svg>
-                  </a>
-                </div>
                 <div class="col"  class='btn btn-success btn-md rounded-2'>
                   <a href="rfid_attendance.php" class="btn btn-success">
                     <svg class="svg-icon" style="width: 20; height: 20;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">

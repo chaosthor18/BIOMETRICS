@@ -15,10 +15,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["action"])){
 else{
 	header("Location: ../logout.php");
 }
-function duplicate_timein($cardid){
+function duplicate_timein($username_carddata){
 	include '../db_conn.php';
 	$today = date("Y-m-d");
-	$attendance_sql = $conn -> prepare("SELECT * FROM time_in WHERE rfid_att_cd='$cardid' AND date='$today'");
+	$attendance_sql = $conn -> prepare("SELECT * FROM time_in WHERE rfid_att_cd='$username_carddata' AND date='$today'");
     $attendance_sql->execute();
 	if($attendance_sql->rowCount()===1){
 		return True;
@@ -27,10 +27,10 @@ function duplicate_timein($cardid){
 		return False;
 	}
 }
-function duplicate_timeout($cardid){
+function duplicate_timeout($username_carddata){
 	include '../db_conn.php';
 	$today = date("Y-m-d");
-	$attendance_sql = $conn -> prepare("SELECT * FROM time_out WHERE rfid_att_cd='$cardid' AND date='$today'");
+	$attendance_sql = $conn -> prepare("SELECT * FROM time_out WHERE rfid_att_cd='$username_carddata' AND date='$today'");
     $attendance_sql->execute();
 	if($attendance_sql->rowCount()===1){
 		return True;
@@ -65,43 +65,44 @@ function timeintimeout_insert(){
 	$fingerid_sql = $conn -> prepare("SELECT * FROM fingerprint WHERE fingerprint_fingerid=?");
     $fingerid_sql->execute([$fingerid]);
 	if($fingerid_sql->rowCount()==1){
-		// $fingerid_row=$fingerid_sql->fetch();
-		// $cardid=$fingerid_row['fingerprint_username'];
-		// $username_sql = $conn -> prepare("SELECT rfid_fname, rfid_lname FROM rfid WHERE rfid_carddata=?");
-    	// $username_sql->execute([$cardid]);
-		// if($username_sql->rowCount()==1){
-		// 	$username_row=$username_sql->fetch();
-		// 	$username_sql = $conn -> prepare("SELECT rfid_fname, rfid_lname FROM rfid WHERE rfid_carddata=?");//GETFULL NAME BY CARDDATA
-		// 	if(!duplicate_timein($cardid)){//TIME IN
-		// 		if(ontime_timein()){//ontime time in
-		// 			$stmt = $conn->prepare("INSERT INTO time_in (rfid_att_cd,time_in,date,status) VALUES ('$cardid','$time_today','$today','On-time')");
-		// 			$stmt->execute();
-		// 			echo "ON TIME";
-		// 		}
-		// 		else{
-		// 			$stmt = $conn->prepare("INSERT INTO time_in (rfid_att_cd,time_in,date,status) VALUES ('$cardid','$time_today','$today','Late')");
-		// 			$stmt->execute();
-		// 			echo "LATE";
-		// 		}
-		// 	}
-		// 	else{//TIME OUT
-		// 		if(!duplicate_timeout($cardid)){
-		// 			if(!overtime_timeout()){//not overtime
-		// 				$stmt = $conn->prepare("INSERT INTO time_out (rfid_att_cd,time_in,date,status) VALUES ('$cardid','$time_today','$today','Not Overtime')");
-		// 				$stmt->execute();
-		// 				echo "Not Overtime";
-		// 			}
-		// 			else{
-		// 				$stmt = $conn->prepare("INSERT INTO time_out (rfid_att_cd,time_in,date,status) VALUES ('$cardid','$time_today','$today','Overtime')");
-		// 				$stmt->execute();
-		// 				echo "Overtime";
-		// 			}
-		// 		}
-		// 		else{
-		// 			echo "You have already time-out.";
-		// 		}
-		// 	}
-		// }
+		$fingerid_row=$fingerid_sql->fetch();
+		$cardid=$fingerid_row['fingerprint_username'];//MITSI ID
+		$username_sql = $conn -> prepare("SELECT rfid_fname, rfid_lname, rfid_carddata FROM rfid WHERE rfid_username=?");
+    	$username_sql->execute([$cardid]);
+		if($username_sql->rowCount()==1){
+			$username_row=$username_sql->fetch();
+			$full_name=strval($username_row['rfid_fname'])." ".strval($username_row['rfid_lname']);
+			$username_carddata=$username_row['rfid_carddata'];//rfid card
+			if(!duplicate_timein($username_carddata)){//TIME IN
+				if(ontime_timein()){//ontime time in
+					$stmt = $conn->prepare("INSERT INTO time_in (full_name,rfid_att_cd,time_in,date,status) VALUES ('$full_name','$username_carddata','$time_today','$today','On-time')");
+					$stmt->execute();
+					echo "ON TIME";
+				}
+				else{
+					$stmt = $conn->prepare("INSERT INTO time_in (full_name,rfid_att_cd,time_in,date,status) VALUES ('$full_name','$username_carddata','$time_today','$today','Late')");
+					$stmt->execute();
+					echo "LATE";
+				}
+			}
+			else{//TIME OUT
+				if(!duplicate_timeout($username_carddata)){
+					if(!overtime_timeout()){//not overtime
+						$stmt = $conn->prepare("INSERT INTO time_out (full_name,rfid_att_cd,time_out,date,status) VALUES ('$full_name','$username_carddata','$time_today','$today','Not Overtime')");
+						$stmt->execute();
+						echo "Not Overtime";
+					}
+					else{
+						$stmt = $conn->prepare("INSERT INTO time_out (full_name,rfid_att_cd,time_out,date,status) VALUES ('$full_name','$username_carddata','$time_today','$today','Overtime')");
+						$stmt->execute();
+						echo "Overtime";
+					}
+				}
+				else{
+					echo "You have already time-out.";
+				}
+			}
+		}
 	}
 }
 

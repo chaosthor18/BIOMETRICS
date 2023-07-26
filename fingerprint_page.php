@@ -57,7 +57,7 @@
         var getName = $(this).val();
         $.ajax({
           method:'POST',
-          url:'./rfid-actions/searchajax.php',
+          url:'./fingerprint-actions/searchajax.php',
           data:{name:getName},
           success:function(response)
           {

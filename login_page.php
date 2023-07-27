@@ -18,11 +18,14 @@
     </style>
 </head>
 <body class="bg-success">
-    <div class="container d-flex min-vh-100">
-        <form class="justify-content-center align-self-center" action="auth.php" method="post">
-            <div class="login-container p-4 row bg-white rounded-5">
+    <div class="container-fluid min-vh-100">
+        <form class="d-flex justify-content-center align-self-center min-vh-100" action="auth.php" method="post">
+            <div class="login-container p-5 bg-white rounded-5 align-self-center shadow-lg">
                 <div class="name-web text-center">
-                    <img src="/BIOMETRICS/icons/mitsi-icon.png" class="img-fluid" height="400px" width="400px" alt="Responsive image">
+                    <img src="/BIOMETRICS/icons/mitsi-icon.png" class="img-fluid" height="150em" width="150em" alt="Responsive image">
+                </div>
+                <div class="text-center">
+                    <span class="fs-3 fw-bold">RFID and Biometrics Attendance<span>
                 </div>
                 <?php error_reporting(0); 
                 if($_GET['error']) {?>
@@ -30,10 +33,16 @@
                     <?= $_GET['error'];?>
                 </div>
                 <?php }?>
-                <div class="username-container" style="padding: 10px 50px 50px 50px">
+                <?php error_reporting(0); 
+                if($_GET['edit_success']) {?>
+                <div class="alert alert-success" role="danger">
+                    <?= $_GET['error'];?>
+                </div>
+                <?php }?>
+                <div class="username-container" style="padding: 10px 30px 30px 30px">
                     <input type="text" name="username_login" class="form-control form-control-lg" placeholder="Username">
                 </div>
-                <div class="password-container" style="padding: 10px 50px 50px 50px">
+                <div class="password-container" style="padding: 10px 30px 30px 30px">
                     <input type="password" name="password_login" class="form-control form-control-lg" placeholder="Password">
                 </div>
                 <div class="button-send text-center">

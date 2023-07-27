@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="row mt-5 justify-content-around">
-                    <div class="col-3 bg-success text-center p-4 rounded-4">
+                    <div class="col-3 bg-success text-center p-4">
                         <p class="h5 fw-bold text-white text-center">Total number of workers: <?php
                             $sql = "SELECT count(1) FROM rfid WHERE NOT rfid_fname='UNREGISTERED' AND NOT rfid_lname='UNREGISTERED'";
                             $result = $conn->query($sql);
@@ -45,7 +45,7 @@
                             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                         </svg>
                     </div>
-                    <div class="col-3 bg-success text-center p-4 rounded-4">
+                    <div class="col-3 bg-success text-center p-4">
                         <p class="h5 fw-bold text-white text-center">Total number of present:
                         <?php
                             $today = date("Y-m-d");
@@ -66,7 +66,7 @@
                             <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z"/>
                         </svg>
                     </div>
-                    <div class="col-3 bg-success text-center p-4 rounded-4">
+                    <div class="col-3 bg-success text-center p-4">
                         <p class="h5 fw-bold text-white text-center">Total number of absent: 
                         <?php
                             $today = date("Y-m-d");

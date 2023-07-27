@@ -30,15 +30,6 @@
                                 $_SESSION['user_type'] = 'admin789123';
                                 header("Location: index.php");
                             }
-                            else{
-                                $_SESSION['user_username'] = $user_username;
-                                $_SESSION['user_name'] = $user_name;
-                                $_SESSION['user_password'] = $user_password;
-                                $_SESSION['user_adminrights'] = $user_adminrights;
-                                $_SESSION['user_type'] = 'user789123';
-                                header("Location: client_index.php");
-                            }
-                            
                         }
                         else {
                             header("Location: login_page.php?error=Incorrect User name or password&username_login=$username");

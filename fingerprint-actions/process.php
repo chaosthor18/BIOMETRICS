@@ -119,8 +119,8 @@ function view_fingerprintdb()
 			<td>
 				<div class='row align-content-center' style='width: 13em; margin: auto; padding: 3px;'>
 				    <div class='col'>
-					    <a href='./fingerprint_edit.php?id=$row[fingerprint_id]' class='btn btn-success btn-sm'>Edit</a>
-						<a href='./fingerprint-actions/reset.php?id=$row[fingerprint_id]&fingerid=$row[fingerprint_fingerid]' class='btn btn-success btn-sm'>Reset</a>
+					    <a href='./fingerprint_edit?id=$row[fingerprint_id]' class='btn btn-success btn-sm'>Edit</a>
+						<a href='./fingerprint-actions/reset?id=$row[fingerprint_id]&fingerid=$row[fingerprint_fingerid]' class='btn btn-success btn-sm'>Reset</a>
 					</div>
 				</div>
 			</td>

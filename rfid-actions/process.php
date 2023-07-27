@@ -115,9 +115,9 @@ function view_rfid()
 			<td>
 				<div class='row align-content-center' style='width: 13em; margin: auto; padding: 3px;'>
 				<div class='col'>
-					<a href='rfid_edit.php?id=$row[rfid_username]' class='btn btn-success btn-sm'>Edit</a>
-					<a href='./rfid-actions/delete.php?id=$row[rfid_id]' class='btn btn-success btn-sm'>Delete</a>
-					<a href='./rfid-actions/print.php?id=$row[rfid_id]' class='btn btn-success btn-sm'>Print</a>
+					<a href='rfid_edit?id=$row[rfid_username]' class='btn btn-success btn-sm'>Edit</a>
+					<a href='./rfid-actions/delete?id=$row[rfid_id]' class='btn btn-success btn-sm'>Delete</a>
+					<a href='./rfid-actions/print?id=$row[rfid_id]' class='btn btn-success btn-sm'>Print</a>
 					</div>
 				</div>
 			</td>

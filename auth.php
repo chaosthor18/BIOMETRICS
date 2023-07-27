@@ -5,10 +5,10 @@
             $username = $_POST['username_login'];
             $password = $_POST['password_login'];
             if (empty($username)){
-                header("Location: login_page.php?error=Please Enter Username");
+                header("Location: login_page?error=Please Enter Username");
             }
             else if (empty($password)){
-                header("Location: login_page.php?error=Please Enter Password");
+                header("Location: login_page?error=Please Enter Password");
             }
             else {
                 $stmt = $conn -> prepare("SELECT * FROM users WHERE username=?");
@@ -28,16 +28,16 @@
                                 $_SESSION['user_password'] = $user_password;
                                 $_SESSION['user_adminrights'] = $user_adminrights;
                                 $_SESSION['user_type'] = 'admin789123';
-                                header("Location: index.php");
+                                header("Location: index");
                             }
                         }
                         else {
-                            header("Location: login_page.php?error=Incorrect User name or password&username_login=$username");
+                            header("Location: login_page?error=Incorrect User name or password&username_login=$username");
                         }
                     }
                 }
                 else {
-                    header("Location: login_page.php?error=Incorrect User name or password&username_login=$username");
+                    header("Location: login_page?error=Incorrect User name or password&username_login=$username");
                 }
             }
         }
@@ -45,6 +45,6 @@
             session_start();
             session_unset();
             session_destroy();
-            header("Location:login_page.php");
+            header("Location:login_page");
         }
 ?>

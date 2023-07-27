@@ -11,8 +11,6 @@
             $duplicate = $conn->prepare("SELECT * FROM fingerprint WHERE fingerprint_username='$fingerprint_username'");
 	        $duplicate->execute();
             if($duplicate->rowCount()!=1){
-                // $insert_f = $conn->prepare("INSERT INTO fingerprint (fingerprint_username) VALUES ('$fingerprint_username')");
-	            // $insert_f->execute();
                 $finger_id=$_POST['fingerprint-id'];
                 $insert_sql = "UPDATE fingerprint " . "SET fingerprint_username = '$fingerprint_username'" . "WHERE fingerprint_id='$finger_id'";
                 $conn->query($insert_sql);

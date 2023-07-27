@@ -26,7 +26,11 @@
                         <label for="username">Username</label>
                         <input type="text" name="username" class="form-control form-control-md" placeholder="Juan_123" required>
                         <label for="password" class="mt-2">Password</label>
-                        <input type="text" name="password" class="form-control form-control-md" placeholder="Passw0rd123" required>
+                        <input type="password" id="password" name="password" class="form-control form-control-md" placeholder="Passw0rd123" required>
+                        <div class="mt-2 form-check">
+                            <input type="checkbox" class="form-check-input" id="checkbox1" onclick="showPassword()">
+                            <label class="form-check-label" for="checkbox1">Show Password</label>
+                        </div>
                         <div class="d-flex justify-content-center mt-5">
                             <button type="submit" class="btn btn-success w-25 align-self-center">Submit</button>
                         </div>
@@ -34,6 +38,16 @@
             </div>
         </div>
     </div>
+    <script>
+        function showPassword() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+        }
+    </script>
     <script src="/BIOMETRICS/bootstrap-5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/BIOMETRICS/js/sidebars.js"></script>
 </body>

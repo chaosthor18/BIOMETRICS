@@ -9,7 +9,7 @@
                     </a> 
                     <ul class="nav nav-pills flex-column mt-4">
                         <li class="nav-item py-2 py-sm-2" role="presentation">
-                            <a href="index" class="nav-link text-white links-navigation" aria-current="page">
+                            <a href="./index" class="nav-link text-white links-navigation" aria-current="page">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-speedometer2" viewBox="0 0 16 16">
                                     <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
                                     <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
@@ -24,7 +24,7 @@
                             </a>
                         </li>
                         <li class="nav-item py-2 py-sm-2">
-                            <a href="fingerprint_page" class="nav-link text-white" aria-current="page">
+                            <a href="./fingerprint_page" class="nav-link text-white" aria-current="page">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-fingerprint" viewBox="0 0 16 16">
                                     <path d="M8.06 6.5a.5.5 0 0 1 .5.5v.776a11.5 11.5 0 0 1-.552 3.519l-1.331 4.14a.5.5 0 0 1-.952-.305l1.33-4.141a10.5 10.5 0 0 0 .504-3.213V7a.5.5 0 0 1 .5-.5Z"/>
                                     <path d="M6.06 7a2 2 0 1 1 4 0 .5.5 0 1 1-1 0 1 1 0 1 0-2 0v.332c0 .409-.022.816-.066 1.221A.5.5 0 0 1 6 8.447c.04-.37.06-.742.06-1.115V7Zm3.509 1a.5.5 0 0 1 .487.513 11.5 11.5 0 0 1-.587 3.339l-1.266 3.8a.5.5 0 0 1-.949-.317l1.267-3.8a10.5 10.5 0 0 0 .535-3.048A.5.5 0 0 1 9.569 8Zm-3.356 2.115a.5.5 0 0 1 .33.626L5.24 14.939a.5.5 0 1 1-.955-.296l1.303-4.199a.5.5 0 0 1 .625-.329Z"/>
@@ -36,7 +36,70 @@
                             </a>
                         </li>
                         <li class="nav-item py-2 py-sm-2">
-                            <a href="changepass_page" class="nav-link text-white" aria-current="page">
+                            <a href="./print_page" class="nav-link text-white" aria-current="page">
+                            <svg
+                                xmlns:dc="http://purl.org/dc/elements/1.1/"
+                                xmlns:cc="http://creativecommons.org/ns#"
+                                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                                xmlns:svg="http://www.w3.org/2000/svg"
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                                viewBox="0 -256 1792 1792"
+                                id="svg3037"
+                                version="1.1"
+                                inkscape:version="0.48.3.1 r9886"
+                                width="30"
+                                height="30"
+                                sodipodi:docname="print_font_awesome.svg">
+                                <metadata
+                                    id="metadata3047">
+                                    <rdf:RDF>
+                                    <cc:Work
+                                        rdf:about="">
+                                        <dc:format>image/svg+xml</dc:format>
+                                        <dc:type
+                                        rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                                    </cc:Work>
+                                    </rdf:RDF>
+                                </metadata>
+                                <defs
+                                    id="defs3045" />
+                                <sodipodi:namedview
+                                    pagecolor="#ffffff"
+                                    bordercolor="#666666"
+                                    borderopacity="1"
+                                    objecttolerance="10"
+                                    gridtolerance="10"
+                                    guidetolerance="10"
+                                    inkscape:pageopacity="0"
+                                    inkscape:pageshadow="2"
+                                    inkscape:window-width="640"
+                                    inkscape:window-height="480"
+                                    id="namedview3043"
+                                    showgrid="false"
+                                    inkscape:zoom="0.13169643"
+                                    inkscape:cx="896"
+                                    inkscape:cy="896"
+                                    inkscape:window-x="0"
+                                    inkscape:window-y="25"
+                                    inkscape:window-maximized="0"
+                                    inkscape:current-layer="svg3037" />
+                                <g
+                                    transform="matrix(1,0,0,-1,53.152542,1270.2373)"
+                                    id="g3039">
+                                    <path
+                                    d="m 384,0 h 896 V 256 H 384 V 0 z m 0,640 h 896 v 384 h -160 q -40,0 -68,28 -28,28 -28,68 v 160 H 384 V 640 z m 1152,-64 q 0,26 -19,45 -19,19 -45,19 -26,0 -45,-19 -19,-19 -19,-45 0,-26 19,-45 19,-19 45,-19 26,0 45,19 19,19 19,45 z m 128,0 V 160 q 0,-13 -9.5,-22.5 Q 1645,128 1632,128 H 1408 V -32 q 0,-40 -28,-68 -28,-28 -68,-28 H 352 q -40,0 -68,28 -28,28 -28,68 V 128 H 32 Q 19,128 9.5,137.5 0,147 0,160 V 576 Q 0,655 56.5,711.5 113,768 192,768 h 64 v 544 q 0,40 28,68 28,28 68,28 h 672 q 40,0 88,-20 48,-20 76,-48 l 152,-152 q 28,-28 48,-76 20,-48 20,-88 V 768 h 64 q 79,0 135.5,-56.5 Q 1664,655 1664,576 z"
+                                    id="path3041"
+                                    inkscape:connector-curvature="0"
+                                    style="fill:currentColor" />
+                                </g>
+                                </svg>
+                                <span class="fs-5 d-none d-sm-inline ms-2">Print</span>
+                            </a>
+                        </li>
+                        <li class="nav-item py-2 py-sm-2">
+                            <a href="./changepass_page" class="nav-link text-white" aria-current="page">
                             <svg fill="white" height="30" width="30" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                                 viewBox="0 0 485.017 485.017" xml:space="preserve">
                             <g>
@@ -58,7 +121,7 @@
                             </a>
                         </li>
                         <li class="nav-item py-2 py-sm-2" role="presentation">
-                            <a href="logout" class="nav-link text-white" aria-current="page">
+                            <a href="./logout" class="nav-link text-white" aria-current="page">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
                                     <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>

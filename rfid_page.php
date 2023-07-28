@@ -21,6 +21,18 @@
                 <?php include "navbar.php"?>
             </div>
             <div class="col dashboard">
+            <?php if(isset($_GET['success'])) {?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <?=$_GET['success'];?>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <?php }?>
+            <?php if(isset($_GET['error'])) {?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <?=$_GET['error'];?>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <?php }?>
               <div class="fs-1 fw-bold mt-4 row">
                 <span class="col-auto">RFID Database</span>
                 <div class="col"  class='btn btn-success btn-md rounded-2'>

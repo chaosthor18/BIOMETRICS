@@ -8,6 +8,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["action"])){
 		case 'timeintimeout_insert':
 			timeintimeout_insert();
 		break;
+		case 'view_Openslot':
+			view_Openslot();
+		break;
 		default:
 		break;
 	}
@@ -15,6 +18,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["action"])){
 else{
 	header("Location: ../logout.php");
 }
+function view_Openslot(){
+	include '../db_conn.php';
+	$openslot_sql = $conn -> prepare ("SELECT * FROM fingerprint WHERE NOT LENGTH(fingerprint_username) = 11");
+    $openslot_sql->execute();
+	if($openslot_sql->rowCount()>=1){
+		while($row = $openslot_sql->fetch()){
+			echo "<tr>
+			   <td>$row[fingerprint_username]</td>
+			   <td>$row[fingerprint_fingerid]</td>
+			   <td>
+				   <div class='row align-content-center' style='width: 13em; margin: auto; padding: 3px;'>
+					   <div class='col'>
+						   <a href='./fingerprint_edit?id=$row[fingerprint_id]' class='btn btn-success btn-sm'>Edit</a>
+						   <a href='./fingerprint-actions/reset?id=$row[fingerprint_id]&fingerid=$row[fingerprint_fingerid]' class='btn btn-success btn-sm'>Reset</a>
+					   </div>
+				   </div>
+			   </td>
+			   </tr>
+			   ";	
+		}
+	}
+}
+
+
 function duplicate_timein($username_carddata){
 	include '../db_conn.php';
 	$today = date("Y-m-d");

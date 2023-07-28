@@ -13,8 +13,8 @@
     <link href="/BIOMETRICS/css/bootstrap.min.css" rel="stylesheet">
     <link href="/BIOMETRICS/css/sidebars.css" rel="stylesheet">
     <script src="/BIOMETRICS/js/jquery-3.7.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="/BIOMETRICS/css/flatpicker.min.css">
+    <script src="/BIOMETRICS/js/flatpicker.js"></script>
 </head>
 <body class="">
     <div class="container-fluid">
@@ -23,14 +23,20 @@
                 <?php include "navbar.php"?>
             </div>
             <div class="col dashboard">
+            <?php if(isset($_GET['error'])) {?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <?=$_GET['error'];?>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <?php }?>
               <div class="fs-1 fw-bold mt-4 row">
                 <span class="col-auto">Print</span>
                 <div class="col"  class='btn btn-success btn-md rounded-2'></div>
               <div class="col my-auto">
-                <input type="text" id="search" class="form-control form-control-md justify-content-center" placeholder="Search">
+                <input type="text" name="search" id="search" class="form-control form-control-md justify-content-center" placeholder="Search">
               </div>
               </div>
-             <form action="/BIOMETRICS/print-actions/print.php" method="post">
+             <form action="/BIOMETRICS/print-actions/print" method="post">
                 <div class="row">
                     <p class="fs-4 fw-bold">Select Date and ID Number</p>
                 </div>
@@ -72,19 +78,19 @@
             }
       $("input[type=datetime-local]").flatpickr();
       $(document).ready(function(){
-    //   $('#search').on("keyup", function(){
-    //     clearInterval(refresh_page);
-    //     var getName = $(this).val();
-    //     $.ajax({
-    //       method:'POST',
-    //       url:'./rfid-actions/searchajax.php',
-    //       data:{name:getName},
-    //       success:function(response)
-    //       {
-    //             $("#showdata").html(response);
-    //       } 
-    //     });
-    //   });
+        $('#search').on("keyup", function(){
+        clearInterval(refresh_page);
+        var getName = $(this).val();
+        $.ajax({
+          method:'POST',
+          url:'./print-actions/searchajax.php',
+          data:{name:getName},
+          success:function(response)
+          {
+                $("#showdata").html(response);
+          } 
+        });
+      });
       function showData()
       {
         $.ajax({

@@ -3,16 +3,14 @@ require('../fpdf186/fpdf.php');
 include "../db_conn.php";
 session_start();
 if(isset($_SESSION['user_username']) && isset($_SESSION['user_password']) && $_SESSION['user_type'] === 'admin789123'){
-
+    $id = $_POST['id'];
+    $from_Date = $_POST['fromDate'];
+    $to_Date = $_POST['toDate'];
     if(!empty($_POST['id']) && !empty($_POST['fromDate']) && !empty($_POST['toDate'])){
-        $id = $_POST['id'];
-        $from_Date = $_POST['fromDate'];
-        $to_Date = $_POST['toDate'];
-
         $pdf = new FPDF();
         $pdf->AddPage();
-        $pdf->SetFont('Arial','',16);
 
+        $pdf->SetFont('Arial','',16);
         $pdf->Ln(10);
         $pdf->SetFont('Arial','B',16);
         $pdf->Image('../icons/mitsi-icon.png', 50, 10, -500);
@@ -26,6 +24,9 @@ if(isset($_SESSION['user_username']) && isset($_SESSION['user_password']) && $_S
         $getrfidcd_sql = $conn->prepare("SELECT * FROM rfid WHERE rfid_username=? AND NOT rfid_fname='UNREGISTERED' AND NOT rfid_Lname='UNREGISTERED'");
         $getrfidcd_sql->execute([$id]);//get rfid card data
         if($getrfidcd_sql->rowCount()==1){//if it is not unregistered
+            if($from_Date>=$to_Date){
+                header("Location: ../print_page.php?error=From Date must not be bigger than To Date.");
+            }
             $row_getrfidcd = $getrfidcd_sql->fetch();
             $rfid = $row_getrfidcd['rfid_carddata'];
             $pdf->SetFont('Arial','B',13);

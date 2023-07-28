@@ -29,7 +29,7 @@
                 </div>
                 <div class="row align-items-center mt-4">
                     <div class="col">
-                        <p class="h1 fw-bold text-center"><?php $Now = new DateTime('now', new DateTimeZone('Asia/Taipei')); echo  $Now->format('Y-M-d H:i');?></p>
+                        <p class="h1 fw-bold text-center"><?php $Now = new DateTime('now', new DateTimeZone('Asia/Taipei')); echo  $Now->format('Y-M-d h:ia');?></p>
                     </div>
                 </div>
                 <div class="row mt-5 justify-content-around">

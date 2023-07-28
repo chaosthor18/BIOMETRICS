@@ -41,8 +41,6 @@
             }
     }
     else{
-        // $change_status = "UPDATE fingerprint_signalread " . "SET status = 'stand-by'" . "WHERE  fingerprint_deviceid='finger_1'";
-        // $conn->query($change_status);
         header("Location: /BIOMETRICS/fingerprint_page.php");
     }
 ?>

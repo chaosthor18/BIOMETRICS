@@ -3,7 +3,7 @@
   if(isset($_SESSION['user_username']) && isset($_SESSION['user_password']) && $_SESSION['user_type'] === 'admin789123'){
     include 'db_conn.php';
 ?>
-                <div class="bg-success p-3">
+                <div class="bg-success p-3 min-vh-100 sticky-top">
                     <a class="d-flex text-white text-decoration-none align-items-center">
                         <span class="fs-4 d-none d-sm-inline fw-bold"><img src="/BIOMETRICS/icons/mitsi-icon.png" class="img-fluid" height="200px" width="200px" alt="Responsive image"><br>RFID & Biometrics</span>
                     </a> 

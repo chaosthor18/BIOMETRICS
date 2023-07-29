@@ -164,6 +164,6 @@ function view_attendanceto()
 		<td><a href='./rfid-actions/time_out_delete.php?id=$row[id]' class='btn btn-success btn-md'>Delete</a></td>
 		</tr>
 	  ";
-	  }
+	}
 }
 ?>

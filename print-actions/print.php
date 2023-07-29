@@ -45,13 +45,12 @@ if(isset($_SESSION['user_username']) && isset($_SESSION['user_password']) && $_S
             $pdf->Cell(47.5,10,'Date',1,1,'C');
 
         
-        
-	        //SELECT * FROM time_in WHERE rfid_att_cd='$rfid' date >= '$from_Date' AND date <= '$to_Date';
+            $total_Hours = 0; //total Hours
             $timein_sql = $conn->prepare("SELECT * FROM time_in WHERE rfid_att_cd='$rfid' AND date >= '$from_Date' AND date <= '$to_Date'");
             $timein_sql->execute();
             if($timein_sql->rowCount()>=1){
-                #$row_timein = $timein_sql->fetch();
                 while($row_timein = $timein_sql->fetch()){
+                    $pdf->SetTitle($from_Date."-".$to_Date." ".$row_timein['full_name']);
                     $pdf->Cell(47.5,10,$row_timein['full_name'],1,0,'C');
                     $pdf->Cell(47.5,10,$row_timein['time_in']."(".$row_timein['status'].")",1,0,'C');
                     $date = $row_timein['date'];
@@ -59,6 +58,12 @@ if(isset($_SESSION['user_username']) && isset($_SESSION['user_password']) && $_S
                     $timeout_sql->execute();
                     if($timeout_sql->rowCount()==1){
                         $row_timeout=$timeout_sql->fetch();
+                        $perline_Hours=(strtotime($row_timeout['time_out']))-(strtotime($row_timein['time_in']));
+                        $timetohours=($perline_Hours/3600);
+                        if($timetohours>=6){
+                            $total_Hours-=1;
+                        }
+                        $total_Hours+=$timetohours;
                         $pdf->Cell(47.5,10,$row_timeout['time_out']."(".$row_timeout['status'].")",1,0,'C');
                     }
                     else{
@@ -66,12 +71,12 @@ if(isset($_SESSION['user_username']) && isset($_SESSION['user_password']) && $_S
                     }
                     $pdf->Cell(47.5,10,$row_timein['date'],1,1,'C');
                 }
+                $pdf->Cell(190,10,"TOTAL HOURS: ".floor($total_Hours),1,1,'C');
             }
             else{
                 $pdf->SetFont('Arial','B',50);
                 $pdf->Cell(190,120,"EMPTY ATTENDANCE",0,0,'C');
             }
-            
         }
         else{
             header("Location: ../print_page.php?error=ID is not found");
@@ -86,7 +91,4 @@ $pdf->Output();
 else{
     header("Location: ../logout.php");
 }
-
-
-
 ?>

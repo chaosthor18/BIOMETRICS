@@ -43,6 +43,7 @@ if(isset($_SESSION['user_username']) && isset($_SESSION['user_password']) && $_S
         $getrfidcd_sql->execute([$id]);
         if($getrfidcd_sql->rowCount()==0){header("Location: ../payroll_page.php?error=Can't find the employee");}
         $row_getrfidcd = $getrfidcd_sql->fetch();
+        $pdf->SetTitle($from_Date." ".$to_Date." ".$row_getrfidcd['rfid_fname']." ".$row_getrfidcd['rfid_lname']);
         $pdf->Ln(15);
         $pdf->SetFont('Arial','B',13);
         $pdf->Cell(60,5,'Name: '.$row_getrfidcd['rfid_fname']." ".$row_getrfidcd['rfid_lname'],0,0,'R');
@@ -94,7 +95,7 @@ if(isset($_SESSION['user_username']) && isset($_SESSION['user_password']) && $_S
             if(!empty($_POST['chkbox_phlhealth'])){
                 $phlhealth = ($total_paymonth*0.045)/2;
             }
-            $netpay=$total_Pay-($sss_deduc+$pagibig+$total_lateDeduc);
+            $netpay=$total_Pay-($phlhealth+$sss_deduc+$pagibig+$total_lateDeduc);
             $pdf->Cell(93,10,"Total Overtime Pay:",1,0,'C');
             $pdf->Cell(93,10,round($total_overtimePay,2),1,1,'C');
             $pdf->Cell(93,10,"Gross Pay: ",1,0,'C');

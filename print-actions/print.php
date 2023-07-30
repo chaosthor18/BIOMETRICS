@@ -43,14 +43,13 @@ if(isset($_SESSION['user_username']) && isset($_SESSION['user_password']) && $_S
             $pdf->Cell(47.5,10,'Time In',1,0,'C');
             $pdf->Cell(47.5,10,'Time Out',1,0,'C');
             $pdf->Cell(47.5,10,'Date',1,1,'C');
-
         
             $total_Hours = 0; //total Hours
             $timein_sql = $conn->prepare("SELECT * FROM time_in WHERE rfid_att_cd='$rfid' AND date >= '$from_Date' AND date <= '$to_Date'");
             $timein_sql->execute();
             if($timein_sql->rowCount()>=1){
                 while($row_timein = $timein_sql->fetch()){
-                    $pdf->SetTitle($from_Date."-".$to_Date." ".$row_timein['full_name']);
+                    $pdf->SetTitle($from_Date." ".$to_Date." ".$row_timein['full_name']);
                     $pdf->Cell(47.5,10,$row_timein['full_name'],1,0,'C');
                     $pdf->Cell(47.5,10,$row_timein['time_in']."(".$row_timein['status'].")",1,0,'C');
                     $date = $row_timein['date'];

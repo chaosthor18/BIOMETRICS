@@ -15,11 +15,6 @@
     <script src="/BIOMETRICS/js/jquery-3.7.0.min.js"></script>
     <link rel="stylesheet" href="/BIOMETRICS/css/flatpicker.min.css">
     <script src="/BIOMETRICS/js/flatpicker.js"></script>
-    <style>
-        option{
-            background-color: #198754;
-        }
-    </style>
 </head>
 <body class="">
     <div class="container-fluid">
@@ -28,7 +23,7 @@
                 <?php include "navbar.php"?>
             </div>
             <div class="col dashboard">
-            <form action="/BIOMETRICS/print-actions/payroll-print.php" method="post">
+            <form action="/BIOMETRICS/print-actions/payroll-print" method="post">
                 <?php if(isset($_GET['error'])) {?>
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                     <?=$_GET['error'];?>
@@ -42,12 +37,12 @@
                 <div class="mt-4">
                 <label for = "form-select">Select Employee</label>
                 <select class="form-control form-select" name="employee-option">
-                    <option selected style="color: white;">Select Employee</option>
+                    <option selected>Select Employee</option>
                     <?php
                         $employee = "SELECT * FROM rfid WHERE NOT rfid_fname='UNREGISTERED' && NOT rfid_lname='UNREGISTERED'";
                         $employee_result =  $conn->query($employee);
                         while($row = $employee_result->fetch()){
-                             $data="<option value='$row[rfid_carddata]'style='color: white;'>$row[rfid_fname] $row[rfid_lname] ($row[rfid_username])</option>";
+                             $data="<option value='$row[rfid_carddata]'>$row[rfid_fname] $row[rfid_lname] ($row[rfid_username])</option>";
                              echo $data;	
                         }
                     ?>
@@ -55,7 +50,7 @@
                 </div>
                 <div class="mt-3">
                     <label for="basic-salaryrate">Basic Pay</label>
-                    <input type="text" name="basic-salaryrate" class="form-control form-control-md" placeholder="520" required>
+                    <input type="text" name="basic-salaryrate" class="form-control form-control-md" placeholder="Per Day ex. 550" required>
                 </div>
                 <div class="mt-3">
                     <label for="fromDate">From</label>
@@ -64,6 +59,10 @@
                 <div class="mt-3">
                     <label for="toDate">To</label>
                     <input type="datetime-local" name="toDate" class="form-control form-control-md justify-content-center" placeholder="End Date" required>
+                </div>
+                <div class="mt-3">
+                    <label for="Overtime">Overtime Rate</label>
+                    <input type="number" min=0 max=100 name="overtime-percent" class="form-control form-control-md justify-content-center" placeholder="Rate(%)">
                 </div>
                 <div class="mt-4">
                     <div class="mt-2 form-check">
@@ -79,7 +78,7 @@
                         <label class="form-check-label" for="checkbox1">PAG-IBIG CONTRIBUTION</label>
                     </div>
                 </div>
-                <div class="d-flex justify-content-center mt-5">
+                <div class="d-flex justify-content-center mt-4">
                     <button type="submit" class="btn btn-success w-25 align-self-center">Print and Compute</button>
                 </div>
             </form>

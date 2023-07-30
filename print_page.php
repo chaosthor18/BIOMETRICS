@@ -42,7 +42,17 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <input type="text"  name="id" class="form-control form-control-md justify-content-center" placeholder="MITSI-XXXXX" required>
+                    <select class="form-control form-select" name="id">
+                    <option selected>Select Employee</option>
+                    <?php
+                        $employee = "SELECT * FROM rfid WHERE NOT rfid_fname='UNREGISTERED' && NOT rfid_lname='UNREGISTERED'";
+                        $employee_result =  $conn->query($employee);
+                        while($row = $employee_result->fetch()){
+                             $data="<option value='$row[rfid_username]'>$row[rfid_fname] $row[rfid_lname] ($row[rfid_username])</option>";
+                             echo $data;	
+                        }
+                    ?>
+                </select>
                     </div>
                     <div class="col">
                         <input type="datetime-local" name="fromDate" class="form-control form-control-md justify-content-center" placeholder="From" required>

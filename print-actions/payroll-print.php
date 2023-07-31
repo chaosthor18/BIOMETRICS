@@ -103,15 +103,15 @@ if(isset($_SESSION['user_username']) && isset($_SESSION['user_password']) && $_S
 
             $pdf->Cell(190,10,"MONTHLY SALARY DEDUCTIONS",0,1,'C');
             $pdf->Cell(93,10,"Late Deductions: ",1,0,'C');
-            $pdf->Cell(93,10,$total_lateDeduc,1,1,'C');
+            $pdf->Cell(93,10,round($total_lateDeduc,2),1,1,'C');
             $pdf->Cell(93,10,"SSS:",1,0,'C');
-            $pdf->Cell(93,10,$sss_deduc,1,1,'C');
+            $pdf->Cell(93,10,round($sss_deduc,2),1,1,'C');
             $pdf->Cell(93,10,"PAG-IBIG:",1,0,'C');
-            $pdf->Cell(93,10,$pagibig,1,1,'C');
+            $pdf->Cell(93,10,round($pagibig,2),1,1,'C');
             $pdf->Cell(93,10,"PHIL-HEALTH:",1,0,'C');
-            $pdf->Cell(93,10,$phlhealth,1,1,'C');
+            $pdf->Cell(93,10,round($phlhealth,2),1,1,'C');
             $pdf->Cell(93,10,"Net Pay: ",1,0,'C');
-            $pdf->Cell(93,10,$netpay,1,1,'C');
+            $pdf->Cell(93,10,round($netpay,2),1,1,'C');
 
         }
         else{
@@ -153,7 +153,7 @@ function overtime($timeout,$date,$id){
     $timein_sql->execute();
     $row_timein =  $timein_sql->fetch();
     $overtime_hours=(strtotime($timeout)-strtotime($row_timein['time_in']))/3600;
-    return $overtime_hours-8;
+    return $overtime_hours-9;
 }
 
 ?>

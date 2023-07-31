@@ -1,0 +1,9 @@
+day=1
+while(day<=25):
+    if(day<=9):
+        sql_day="0"+str(day)
+    else:
+        sql_day=str(day)
+    sql = "INSERT INTO `time_out` (`id`, `full_name`, `rfid_att_cd`, `time_out`, `date`, `status`) VALUES (NULL, 'Reydentor Casaljay', '9c61f838', '18:01:00', '2023-06-{}', 'On-time');".format(sql_day)
+    day=day+1;
+    print(sql)

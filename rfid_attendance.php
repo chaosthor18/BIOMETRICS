@@ -54,7 +54,7 @@
                 <thead>
                   <tr>
                     <td class="fw-bold">Full Name</td>
-                    <td class="fw-bold">ID Number</td>
+                    <td class="fw-bold">RFID Number</td>
                     <td class="fw-bold">Time In</td>  
                     <td class="fw-bold">Status</td> 
                     <td class="fw-bold">Action</td>
@@ -68,7 +68,7 @@
                 <thead>
                   <tr>
                     <td class="fw-bold">Full Name</td>
-                    <td class="fw-bold">ID Number</td>
+                    <td class="fw-bold">RFID Number</td>
                     <td class="fw-bold">Time Out</td> 
                     <td class="fw-bold">Status</td> 
                     <td class="fw-bold">Action</td>

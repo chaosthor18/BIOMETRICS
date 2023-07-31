@@ -23,13 +23,10 @@ function view_timein()
 	$today = date("Y-m-d");
 	$timein_sql = "SELECT * FROM time_in WHERE date='$today'";
 	$result_timein =  $conn->query($timein_sql);
-	$getname_sql = $conn -> prepare("SELECT rfid_fname, rfid_lname, rfid_username FROM rfid WHERE rfid_carddata=?");
 	  while($row = $result_timein->fetch()){
-		$getname_sql->execute([$row['rfid_att_cd']]);
-		$row_getname=$getname_sql->fetch();
 		echo "<tr>
 		<td>$row[full_name]</td>
-		<td>$row_getname[2]</td>
+		<td>$row[rfid_att_cd]</td>
 		<td>$row[time_in]</td>
 		<td>$row[status]</td>
 		</tr>
@@ -43,13 +40,10 @@ function view_timeout()
 	$today = date("Y-m-d");
 	$timeout_sql = "SELECT * FROM time_out WHERE date='$today'";
 	$result_timeout =  $conn->query($timeout_sql);
-	$getname_sql = $conn -> prepare("SELECT rfid_fname, rfid_lname, rfid_username FROM rfid WHERE rfid_carddata=?");
 	  while($row = $result_timeout->fetch()){
-		$getname_sql->execute([$row['rfid_att_cd']]);
-		$row_getname=$getname_sql->fetch();
 		echo "<tr>
 		<td>$row[full_name]</td>
-		<td>$row_getname[2]</td>
+		<td>$row[rfid_att_cd]</td>
 		<td>$row[time_out]</td>
 		<td>$row[status]</td>
 		</tr>
